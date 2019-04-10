@@ -1,18 +1,17 @@
-const N = 100;
-const STEPS = 10;
-
-exports.synchronous = function synchronous() {
+exports.factorial = function factorial(n) {
   let result = 1;
-  for (let i = 1; i <= N; i++) {
+  for (let i = 0; i < n; i += 1) {
     result *= i;
   }
-  return result;
+  result;
 };
 
-exports.asynchronous = function asynchronous(i, result, done) {
-  const lim = i + STEPS - (i % STEPS);
-  for (; i <= lim; i++) {
-    result *= i;
+exports.pi = function pi(n) {
+  let pi = 0;
+  let i = 1;
+  while (i < n) {
+    pi += 4 / i - 4 / (i + 2);
+    i += 4;
   }
-  return i >= N ? done() : setTimeout(() => asynchronous(i, result, done), 0);
+  return pi;
 };
