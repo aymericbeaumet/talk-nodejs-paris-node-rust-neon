@@ -1,6 +1,6 @@
 # Node.js Paris talk (2019-04-10)
 
-## Why and how connect Rust code to your Node.jds project ?
+## Why and how connect Rust code to your Node.js project ?
 
 ## Quick links
 
