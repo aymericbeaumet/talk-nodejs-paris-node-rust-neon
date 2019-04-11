@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const Benchmark = require("benchmark");
 const child_process = require("child_process");
 const { Worker } = require("worker_threads");
@@ -54,15 +55,24 @@ avoidMainEventLoopSuite.add({
 
 avoidMainEventLoopSuite
   .on("start", function() {
-    console.log(`
----
-What is the performance impact to avoid running synchronous code in the main event loop?
----`);
+    console.log(`First, we want to know what is the performance impact to run synchronous
+code inside/outside the main event loop. What we want to highlight with this
+benchmark is that solutions exist when synchronous code need to be run, but
+they come at a price.
+`);
   })
   .on("cycle", function(event) {
-    console.log(String(event.target));
+    console.log(`    ${String(event.target)}`);
   })
   .on("complete", function() {
-    console.log("Fastest is " + this.filter("fastest").map("name"));
+    console.log(`    -> Fastest is ${this.filter("fastest").map("name")}
+
+The main event loop is indeed the fastest, as expected. The child processes
+and worker threads have to take orders and communicate their results from/to
+the main thread, meaning they are limited by the speed at which they can
+receive/send messages. That being said, the performance impact is acceptable
+considering it enables to stop polluting the event loop with non-trivial
+synchronous operations.
+`);
   })
   .run({ async: true });
