@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "benchmark": "2.1.4",
-    "microtime": "3.0.0",
+    "microtime": "3.0.0"
+  },
+  "devDependencies": {
     "neon-cli": "0.2.0"
   }
 }
