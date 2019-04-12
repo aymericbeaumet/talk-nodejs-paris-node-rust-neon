@@ -46,9 +46,9 @@ code inside/outside the main event loop. What we want to highlight with this
 benchmark is that solutions exist when synchronous code need to be run, but
 they come at a price.
 
-    Main event loop x 1,776 ops/sec ±0.84% (89 runs sampled)
-    Child process x 1,505 ops/sec ±1.34% (78 runs sampled)
-    Worker thread x 1,585 ops/sec ±1.01% (79 runs sampled)
+    Main event loop x 456 ops/sec ±0.43% (83 runs sampled)
+    Child process x 409 ops/sec ±1.08% (82 runs sampled)
+    Worker thread x 421 ops/sec ±0.75% (79 runs sampled)
     -> Fastest is Main event loop
 
 The main event loop is indeed the fastest, as expected. The child processes
@@ -68,8 +68,8 @@ something else. Some languages are very efficient when it comes to CPU-bound
 operations, like C, C++ or Rust. I like Rust, let's see whether there is a
 clear win performance-wise. Let's try with the factorial function!
 
-    JavaScript synchronous x 11,723,502 ops/sec ±1.16% (88 runs sampled)
-    Rust synchronous x 1,044,612 ops/sec ±1.00% (90 runs sampled)
+    JavaScript synchronous x 9,790,739 ops/sec ±0.87% (88 runs sampled)
+    Rust synchronous x 1,035,550 ops/sec ±1.37% (83 runs sampled)
     -> Fastest is JavaScript synchronous
 
 Ah! What we see here is that while the factorial function is CPU bound, it is
@@ -84,9 +84,9 @@ inefficient, easy to implement, and allow an arbitrary number of iterations,
 all of this while keeping the result in a single float. This makes it ideal
 for our use case.
 
-    JavaScript pi x 1,755 ops/sec ±0.90% (85 runs sampled)
-    Rust pi x 2,690 ops/sec ±0.53% (89 runs sampled)
-    Rust pi parallel x 4,281 ops/sec ±0.91% (86 runs sampled)
+    JavaScript pi x 457 ops/sec ±0.37% (83 runs sampled)
+    Rust pi x 2,750 ops/sec ±0.46% (88 runs sampled)
+    Rust pi parallel x 3,680 ops/sec ±1.56% (84 runs sampled)
     -> Fastest is Rust pi parallel
 
 Ah! Here we go. We see the Rust implementation is indeed faster, this is
