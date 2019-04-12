@@ -8,18 +8,20 @@ use rayon::prelude::*;
 export! {
     fn factorial(n: u64) -> u64 {
         let mut result = 1;
-        for i in 1..n {
+        for i in 1..=n {
             result *= i;
         }
         result
     }
 
     fn pi(n: f64) -> f64 {
+        let step = 4.;
+        let max = n * step;
         let mut pi = 0.;
         let mut i = 1.;
-        while i < n {
+        while i < max {
             pi += 4. / i - 4. / (i + 2.);
-            i += 4.;
+            i += step;
         }
         pi
     }
