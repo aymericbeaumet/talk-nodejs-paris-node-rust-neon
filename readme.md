@@ -1,12 +1,12 @@
 # Node.js Paris talk (2019-04-10)
 
-## Why and how connect Rust code to your Node.jds project ?
+## Why and how connect Rust code to your Node.js project ?
 
 ## Quick links
 
 - [Meetup.com event](https://www.meetup.com/Nodejs-Paris/events/259760113/)
 - [Slides](https://docs.google.com/presentation/d/19oJz0mV5bpiTzAQC5N2LsHub37Y_Ib5Tez2Mor9q0dM/edit?usp=sharing)
-- [Source code](https://github.com/aymericbeaumet/nodejs-paris-talk-node-rust-neon)
+- [Source code](https://github.com/aymericbeaumet/talk-nodejs-paris-node-rust-neon)
 
 ## Getting started
 
